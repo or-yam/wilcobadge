@@ -1,0 +1,20 @@
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false"
+    class="chakra-icon css-101392x" aria-hidden="true">
+    <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M5.61825 0.138611H0.12207V22.3169H5.61816V27.8614H11.1143V22.3168H5.61825V0.138611ZM27.8778 0.138611H22.3816V22.3168H16.8855V27.8614H22.3817V22.3169H27.8778V0.138611ZM11.1145 11.2277H16.7481V22.3168H11.1145V11.2277Z"
+        fill="url(#paint0_linear_812_53162)"></path>
+    <defs>
+        <linearGradient id="paint0_linear_812_53162" x1="27.5219" y1="24.6626" x2="-0.42665" y2="-0.880328"
+            gradientUnits="userSpaceOnUse">
+            <stop offset="0.0192563" stop-color="#855BBA"></stop>
+            <stop offset="0.139184" stop-color="#2EA9ED"></stop>
+            <stop offset="0.227731" stop-color="#5AB993"></stop>
+            <stop offset="0.326695" stop-color="#8ACA40"></stop>
+            <stop offset="0.441285" stop-color="#C3C232"></stop>
+            <stop offset="0.583333" stop-color="#FEBA2C"></stop>
+            <stop offset="0.713542" stop-color="#F77125"></stop>
+            <stop offset="0.838227" stop-color="#F02A23"></stop>
+            <stop offset="0.906004" stop-color="#C03450"></stop>
+        </linearGradient>
+    </defs>
+</svg>
