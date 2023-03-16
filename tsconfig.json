@@ -4,8 +4,8 @@
     "moduleResolution": "NodeNext",
     "target": "ES2020",
     "sourceMap": true,
-    "outDir": "dist",
+    "outDir": "public/dist",
     "strict": true
   },
-  "include": ["src/**/*", "api/**/*"]
+  "include": ["src/**/*", "api/**/*", "icons/**/*"]
 }
