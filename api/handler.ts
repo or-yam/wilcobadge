@@ -19,18 +19,21 @@ export async function getWilcoStats(wilcoName: string): Promise<Stats> {
   return stats;
 }
 
-function generateStatsIcon(iconName: string, value?: number): string {
-  try {
-    const file = path.join(process.cwd(), 'public/icons', `${iconName}.svg`);
-    const svgIcon = readFileSync(file, 'utf8');
+function generateStatsIcon(iconName: 'coin' | 'xp' | 'trophy' | 'logo', value?: number): string {
+  const file = path.join(process.cwd(), 'public/icons', `${iconName}.svg`);
+  const svgIcon = readFileSync(file, 'utf8');
 
-    if (!value) return svgIcon;
-    return `${svgIcon} ${value}`;
-  } catch (e) {
-    console.log(process.cwd());
+  if (iconName === 'logo') return svgIcon;
 
-    throw new Error(process.cwd());
-  }
+  const xPosition = {
+    coin: 47,
+    xp: 95,
+    trophy: 152
+  };
+
+  const text = `<text font-size="18" stroke="black" fill="black" x='${xPosition[iconName]}' y="50">200</text>`;
+
+  return `${svgIcon} ${text}`;
 }
 
 export function generateSvgBadge(stats: Stats) {
@@ -39,7 +42,7 @@ export function generateSvgBadge(stats: Stats) {
   const svgTrophy = generateStatsIcon('trophy', stats.quests);
   const svgXp = generateStatsIcon('xp', stats.xp);
   return `
-  <svg xmlns="http://www.w3.org/2000/svg">
+  <svg xmlns="http://www.w3.org/2000/svg" width="300" height="80" viewBox="0 0 300 80" fill="none">
   ${svgLogo}
   ${svgCoin}
   ${svgXp}
