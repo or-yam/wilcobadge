@@ -10,7 +10,7 @@ interface Stats {
   quests: number;
 }
 
-async function getWilcoStats(wilcoName: string): Promise<Stats> {
+export async function getWilcoStats(wilcoName: string): Promise<Stats> {
   const stats = await fetch(`https://engine.wilco.gg/api/v1/profile/${wilcoName}`)
     .then(res => res.json())
     .then(data => ({ xp: data.xp, wilCoins: data.gems, quests: data?.finishedQuests?.length } satisfies Stats))
@@ -27,7 +27,7 @@ function generateStatsIcon(iconName: string, value?: number): string {
   return `${svgIcon} ${value}`;
 }
 
-function generateSvgBadge(stats: Stats) {
+export function generateSvgBadge(stats: Stats) {
   const svgLogo = generateStatsIcon('logo');
   const svgCoin = generateStatsIcon('coin', stats.wilCoins);
   const svgTrophy = generateStatsIcon('trophy', stats.quests);
