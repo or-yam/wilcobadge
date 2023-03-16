@@ -1,4 +1,5 @@
-import fs from 'node:fs';
+import { readFileSync } from 'fs';
+import path from 'path';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 interface Stats {
@@ -19,7 +20,9 @@ export async function getWilcoStats(wilcoName: string): Promise<Stats> {
 }
 
 function generateStatsIcon(iconName: string, value?: number): string {
-  const svgIcon = fs.readFileSync(`../../icons/${iconName}.svg`, 'utf-8');
+  const file = path.join(process.cwd(), '../public/icons', `${iconName}.svg`);
+  const svgIcon = readFileSync(file, 'utf8');
+
   if (!value) return svgIcon;
   return `${svgIcon} ${value}`;
 }
