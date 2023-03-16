@@ -31,7 +31,7 @@ function generateStatsIcon(iconName: 'coin' | 'xp' | 'trophy' | 'logo', value?: 
     trophy: 152
   };
 
-  const text = `<text font-size="18" stroke="black" fill="black" x='${xPosition[iconName]}' y="50">200</text>`;
+  const text = `<text font-size="18" stroke="black" fill="black" x='${xPosition[iconName]}' y="50">${value}</text>`;
 
   return `${svgIcon} ${text}`;
 }
