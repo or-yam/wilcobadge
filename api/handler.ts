@@ -20,11 +20,17 @@ export async function getWilcoStats(wilcoName: string): Promise<Stats> {
 }
 
 function generateStatsIcon(iconName: string, value?: number): string {
-  const file = path.join(process.cwd(), '../public/icons', `${iconName}.svg`);
-  const svgIcon = readFileSync(file, 'utf8');
+  try {
+    const file = path.join(process.cwd(), 'public/icons', `${iconName}.svg`);
+    const svgIcon = readFileSync(file, 'utf8');
 
-  if (!value) return svgIcon;
-  return `${svgIcon} ${value}`;
+    if (!value) return svgIcon;
+    return `${svgIcon} ${value}`;
+  } catch (e) {
+    console.log(process.cwd());
+
+    throw new Error('Currnt WD :', process.cwd());
+  }
 }
 
 export function generateSvgBadge(stats: Stats) {
