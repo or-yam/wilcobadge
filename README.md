@@ -1,9 +1,13 @@
 # wilcobadge
 
-## running
+A dynamic Wilco stats badge generator
 
-> Requires Nodejs V18 or higher
+## How to use 
+Just use the url with your Wilco user-name inside an image tag.
+`https://wilcobadge.vercel.app/api/handler?wilconame=<YOUR WILCO USER-NAME>`
 
-0. `npm i`
-1. `npm start`
-2. open `localhost:3000?wilconame=<Wilco username>`
+### Example:
+
+```html
+<img src="https://wilcobadge.vercel.app/api/handler?wilconame=or-yam" />
+```
