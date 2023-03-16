@@ -7,5 +7,5 @@
     "outDir": "public/dist",
     "strict": true
   },
-  "include": ["src/**/*", "api/**/*", "icons/**/*"]
+  "include": ["src/**/*", "api/**/*"]
 }
