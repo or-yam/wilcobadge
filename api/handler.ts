@@ -39,15 +39,7 @@ export function generateSvgBadge(stats: Stats) {
   const svgTrophy = generateStatsIcon('trophy', stats.quests);
   const svgXp = generateStatsIcon('xp', stats.xp);
   return `
-  <svg 
-    width="467"
-    height="180"
-    viewBox="0 0 467 180"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    role="img"
-    aria-labelledby="descId"
-  >
+  <svg>
   ${svgLogo}
   ${svgCoin}
   ${svgXp}
