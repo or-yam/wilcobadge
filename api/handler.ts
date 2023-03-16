@@ -29,7 +29,7 @@ function generateStatsIcon(iconName: string, value?: number): string {
   } catch (e) {
     console.log(process.cwd());
 
-    throw new Error('Currnt WD :', process.cwd());
+    throw new Error(process.cwd());
   }
 }
 
