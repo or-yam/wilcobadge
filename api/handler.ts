@@ -19,7 +19,7 @@ export async function getWilcoStats(wilcoName: string): Promise<Stats> {
 }
 
 function generateStatsIcon(iconName: string, value?: number): string {
-  const svgIcon = fs.readFileSync(`../icons/${iconName}.svg`, 'utf-8');
+  const svgIcon = fs.readFileSync(`../../icons/${iconName}.svg`, 'utf-8');
   if (!value) return svgIcon;
   return `${svgIcon} ${value}`;
 }
