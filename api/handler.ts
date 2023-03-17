@@ -1,5 +1,8 @@
 import { readFileSync } from 'fs';
 import path from 'path';
+import satori from 'satori';
+import { html } from 'satori-html';
+
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 type Stats = {
@@ -72,6 +75,71 @@ export default async function handler(request: VercelRequest, response: VercelRe
   const wilcoStats = await getWilcoStats(wilcoName);
   const svgBadge = generateSvgBadge(wilcoStats);
 
+  const satoriSvgBadge = await satoriSvg(wilcoStats);
+
   response.setHeader('Content-Type', 'image/svg+xml');
-  response.send(svgBadge);
+  response.send(satoriSvgBadge);
+}
+
+///Satori test
+
+const getIconByName = (name: string) => {
+  const file = path.join(process.cwd(), 'public/icons', `${name}.svg`);
+  const svgIcon = readFileSync(file, 'utf8');
+  return svgIcon;
+};
+
+const createHtmlTemplate = (stats: Stats): string => {
+  const svgLogo = getIconByName(iconNames.logo);
+  const svgCoin = getIconByName(iconNames.coin);
+  const svgTrophy = getIconByName(iconNames.trophy);
+  const svgXp = getIconByName(iconNames.xp);
+  return `<div
+  style="
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100px;
+    gap: 12px;
+  "
+>
+  ${svgLogo}
+  <div style="display: flex; height: 100%; width: 100%; justify-content: space-between; align-items: center">
+    <!-- coin -->
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      ${svgCoin}
+      <div style="font-size: large">${stats.wilCoins}</div>
+    </div>
+    <!--XP  -->
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      ${svgXp}
+      <div style="font-size: large">${stats.xp}</div>
+    </div>
+    <!-- Trophy -->
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      ${svgTrophy}
+      <div style="font-size: large">${stats.quests}</div>
+    </div>
+  </div>
+</div>
+`;
+};
+
+async function satoriSvg(stats: Stats) {
+  const htmlTemplate = html(createHtmlTemplate(stats));
+  const svg = await satori(htmlTemplate, {
+    width: 600,
+    height: 400,
+    fonts: [
+      {
+        name: 'VictorMono',
+        data: await readFileSync('./VictorMono-Bold.ttf'),
+        weight: 700,
+        style: 'normal'
+      }
+    ]
+  });
 }

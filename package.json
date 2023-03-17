@@ -18,6 +18,8 @@
     "typescript": "^4.9.3"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "satori": "^0.4.3",
+    "satori-html": "^0.3.2"
   }
 }
