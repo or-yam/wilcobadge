@@ -20,9 +20,9 @@ type Icon = keyof typeof iconNames;
 const WILCO_PROFILE_API = 'https://engine.wilco.gg/api/v1/profile/';
 
 const textXPosition = {
-  coin: 47,
-  xp: 95,
-  trophy: 152
+  coin: 114,
+  xp: 174,
+  trophy: 236
 };
 
 async function getWilcoStats(wilcoName: string): Promise<Stats> {
@@ -42,7 +42,7 @@ function generateStatsIcon(iconName: Icon, value?: number): string {
 
   if (iconName === 'logo' || value === undefined) return svgIcon;
 
-  const text = `<text font-size="18" stroke="black" fill="black" x='${textXPosition[iconName]}' y="50">${value}</text>`;
+  const text = `<text text-anchor="middle" font-size="18" stroke="black" fill="black" x='${textXPosition[iconName]}' y="65">${value}</text>`;
 
   return `${svgIcon} ${text}`;
 }
@@ -53,7 +53,7 @@ function generateSvgBadge(stats: Stats) {
   const svgTrophy = generateStatsIcon(iconNames.trophy, stats.quests);
   const svgXp = generateStatsIcon(iconNames.xp, stats.xp);
   return `
-  <svg xmlns="http://www.w3.org/2000/svg" width="300" height="80" viewBox="0 0 300 80" fill="none">
+  <svg xmlns="http://www.w3.org/2000/svg" width="260" height="80" viewBox="0 0 260 80" fill="none">
   ${svgLogo}
   ${svgCoin}
   ${svgXp}
