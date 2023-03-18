@@ -63,8 +63,8 @@ function generateSvgBadge(stats: Stats) {
       background: linear-gradient(312.39deg, #855BBA 8.04%, #2EA9ED 19.62%, #5AB993 28.18%, #8ACA40 37.74%, #C3C232 48.81%, #FEBA2C 62.53%, #F77125 75.11%, #F02A23 87.16%, #C03450 93.71%);
       border-radius: 0.375rem;       
   ">
-    <rect x=2.5 y=2.5 rx="5" width="265" height="85" fill="#2f3136"></rect>
-    <svg  width="260" height="80" x='5' y='5' viewBox="0 0 260 80" fill="none">
+    <rect x="2.5" y="2.5" rx="5" width="265" height="85" fill="#2f3136"></rect>
+    <svg  width="260" height="80" x="5" y="5" viewBox="0 0 260 80" fill="none">
     ${svgLogo}
     ${svgCoin}
     ${svgXp}
