@@ -25,6 +25,12 @@ const textXPosition = {
   trophy: 236
 };
 
+const iconLabels = {
+  coin: 'Wilcoins',
+  xp: 'XP',
+  trophy: 'Quests'
+};
+
 async function getWilcoStats(wilcoName: string): Promise<Stats> {
   const stats = await fetch(`${WILCO_PROFILE_API}${wilcoName}`)
     .then(res => res.json())
@@ -42,7 +48,10 @@ function generateStatsIcon(iconName: Icon, value?: number): string {
 
   if (iconName === 'logo' || value === undefined) return svgIcon;
 
-  const text = `<text text-anchor="middle" font-size="18" stroke="black" fill="black" x='${textXPosition[iconName]}' y="65">${value}</text>`;
+  const text = `
+  <text text-anchor="middle" font-size="14" fill="#a4a4a7" x='${textXPosition[iconName]}' y="60">${value}</text> 
+  <text text-anchor="middle" font-size="14"  fill="#a4a4a7" x='${textXPosition[iconName]}' y="75">${iconLabels[iconName]}</text>
+  `;
 
   return `${svgIcon} ${text}`;
 }
@@ -53,11 +62,24 @@ function generateSvgBadge(stats: Stats) {
   const svgTrophy = generateStatsIcon(iconNames.trophy, stats.quests);
   const svgXp = generateStatsIcon(iconNames.xp, stats.xp);
   return `
-  <svg xmlns="http://www.w3.org/2000/svg" width="260" height="80" viewBox="0 0 260 80" fill="none">
-  ${svgLogo}
-  ${svgCoin}
-  ${svgXp}
-  ${svgTrophy}
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="270" 
+    height="90" 
+    viewBox="0 0 270 90" 
+    fill="none" 
+    style="
+      background: linear-gradient(312.39deg, #855BBA 8.04%, #2EA9ED 19.62%, #5AB993 28.18%, #8ACA40 37.74%, #C3C232 48.81%, #FEBA2C 62.53%, #F77125 75.11%, #F02A23 87.16%, #C03450 93.71%);
+      background-repeat: no-repeat;
+      border-radius: 0.375rem;       
+  ">
+    <rect x="2.5" y="2.5" rx="5" width="265" height="85" fill="#2f3136"></rect>
+    <svg  width="260" height="80" x="5" y="5" viewBox="0 0 260 80" fill="none">
+    ${svgLogo}
+    ${svgCoin}
+    ${svgXp}
+    ${svgTrophy}
+    </svg>
   </svg>`;
 }
 
