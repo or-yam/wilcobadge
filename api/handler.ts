@@ -25,6 +25,12 @@ const textXPosition = {
   trophy: 236
 };
 
+const iconTexts = {
+  coin: 'Wilcoins',
+  xp: 'XP',
+  trophy: 'Quests'
+};
+
 async function getWilcoStats(wilcoName: string): Promise<Stats> {
   const stats = await fetch(`${WILCO_PROFILE_API}${wilcoName}`)
     .then(res => res.json())
@@ -42,7 +48,10 @@ function generateStatsIcon(iconName: Icon, value?: number): string {
 
   if (iconName === 'logo' || value === undefined) return svgIcon;
 
-  const text = `<text text-anchor="middle" font-size="18" fill="#a4a4a7" x='${textXPosition[iconName]}' y="65">${value}</text>`;
+  const text = `
+  <text text-anchor="middle" font-size="14" fill="#a4a4a7" x='${textXPosition[iconName]}' y="60">${value}</text> 
+  <text text-anchor="middle" font-size="14"  fill="#a4a4a7" x='${textXPosition[iconName]}' y="75">${iconTexts[iconName]}</text>
+  `;
 
   return `${svgIcon} ${text}`;
 }
