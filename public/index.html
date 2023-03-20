@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://res.cloudinary.com/wilco/image/upload/wilco-assets/logos/favicon_bfmgpi.ico"
+    />
+    <title>Wilco stats</title>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: #303237;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+    }
+    pre {
+      font-size: larger;
+    }
+    p {
+      font-size: large;
+    }
+  </style>
+  <body>
+    <h1>Wilco badge generator</h1>
+    <img src="https://wilcobadge.vercel.app/api/handler?wilconame=aloncarmel" />
+    
+    <h2>How to use</h2>
+    <p>Paste this image tag in your HTML / Markdown file</p>
+    <pre>
+        <span><</span><span>img src="https://wilcobadge.vercel.app/api/handler?wilconame=[YOUR WILCO NAME]" /<span>></span></span>
+    </pre>
+  </body>
+</html>
