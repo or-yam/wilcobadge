@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet" />
     <link
       id="favicon"
       rel="icon"
@@ -13,7 +16,9 @@
   </head>
   <style>
     body {
+      font-family: 'DotGothic16', sans-serif;
       height: 100vh;
+      width: 100vw;
       margin: 0;
       padding: 0;
       background-color: #303237;
@@ -23,21 +28,32 @@
       align-items: center;
       color: #ffffff;
     }
+    h1 {
+      font-size: 5rem;
+    }
     pre {
       font-size: larger;
+      border: 1px solid #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      text-align: center;
+      text-overflow: ellipsis;
     }
     p {
       font-size: large;
+      padding: 0.5rem;
+      text-align: center;
     }
   </style>
   <body>
     <h1>Wilco badge generator</h1>
     <img src="https://wilcobadge.vercel.app/api/handler?wilconame=aloncarmel" />
-    
-    <h2>How to use</h2>
-    <p>Paste this image tag in your HTML / Markdown file</p>
+    <p>Just paste this image tag in your HTML / Markdown file with your Wilco username</p>
     <pre>
         <span><</span><span>img src="https://wilcobadge.vercel.app/api/handler?wilconame=[YOUR WILCO NAME]" /<span>></span></span>
     </pre>
+    <script src="./dist/src/index.js" />
   </body>
 </html>
